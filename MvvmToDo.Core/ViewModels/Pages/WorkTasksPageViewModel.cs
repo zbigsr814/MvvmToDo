@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvvmToDo.Core.Helpers;
+using MvvmToDo.Database;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -40,23 +42,48 @@ namespace MvvmToDo.Core
         {
             AddNewTaskCommand = new RelayComand(AddNewWorkTaskToList);
             DeleteTasksCommand = new RelayComand(DeleteTasks);
+
+            foreach ( var item in DatabaseLocator.Database.WorkTasks.ToList())  // przypisywanie zmiennych z DB do VM
+            {
+                WorkTaskList.Add(new WorkTaskViewModel()
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    Description = item.Description,
+                    CreatedDate = item.CreatedDate
+                });
+            }
         }
 
         private void DeleteTasks()
         {
-            //ObservableCollection<WorkTaskViewModel> tmpList = WorkTaskList;
             for (int i = 0; i < WorkTaskList.Count; i++)
             {
                 if (WorkTaskList[i].IsSelected) 
-                { 
+                {
+                    var foundEntity = DatabaseLocator.Database.WorkTasks.FirstOrDefault(x => x.Id == WorkTaskList[i].Id);
+                    if (foundEntity != null)
+                    {
+                        DatabaseLocator.Database.WorkTasks.Remove(foundEntity);
+                    }                                                                   // usuwanie z DB
+
                     WorkTaskList.RemoveAt(i);
                     i--;
                 }
             }
+            DatabaseLocator.Database.SaveChanges();
         }
 
         public void AddNewWorkTaskToList()
         {
+            DatabaseLocator.Database.Add(new WorkTask()
+            {
+                Title = NewWorkTaskTitle,
+                Description =  NewWorkTaskDescription,
+                CreatedDate = DateTime.Now
+            });
+            DatabaseLocator.Database.SaveChanges();
+
             var newTask = new WorkTaskViewModel()
             {
                 Title = NewWorkTaskTitle,

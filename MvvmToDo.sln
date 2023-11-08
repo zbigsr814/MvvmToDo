@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmToDo", "MvvmToDo\MvvmToDo.csproj", "{1F96DFB7-8DB9-4AD4-BF7D-46284E81B78C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmToDo", "MvvmToDo\MvvmToDo.csproj", "{1F96DFB7-8DB9-4AD4-BF7D-46284E81B78C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmToDo.Core", "MvvmToDo.Core\MvvmToDo.Core.csproj", "{723FB8FD-FF14-476E-8A28-14B7D904376B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmToDo.Core", "MvvmToDo.Core\MvvmToDo.Core.csproj", "{723FB8FD-FF14-476E-8A28-14B7D904376B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmToDo.Database", "MvvmToDo.Database\MvvmToDo.Database.csproj", "{DFC3010B-47ED-458F-999B-5AA8F968DBC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{723FB8FD-FF14-476E-8A28-14B7D904376B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{723FB8FD-FF14-476E-8A28-14B7D904376B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{723FB8FD-FF14-476E-8A28-14B7D904376B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC3010B-47ED-458F-999B-5AA8F968DBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC3010B-47ED-458F-999B-5AA8F968DBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC3010B-47ED-458F-999B-5AA8F968DBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC3010B-47ED-458F-999B-5AA8F968DBC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

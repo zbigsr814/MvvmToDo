@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmToDo.Core
+namespace MvvmToDo.Database
 {
-    public class WorkTaskViewModel : BaseViewModel
+    public class WorkTask
     {
         public int Id { get; set; }
-        public bool IsSelected { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
